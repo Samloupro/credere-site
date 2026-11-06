@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- =========================================================
+     Credere.ma — page du site
+     Le menu, les coordonnées et le pied de page ne sont PAS
+     écrits ici : ils viennent de js/site.data.js et sont
+     composés par js/layout.js. Cette page ne contient que son
+     contenu propre et son <head>. Voir AGENTS.md.
+     ========================================================= -->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Credere.ma</title>
+<meta name="description" content="Contactez Credere.ma pour votre crédit immobilier au Maroc : téléphone, e-mail, WhatsApp et formulaire de demande. Premier échange gratuit et sans engagement.">
+<meta name="theme-color" content="#0d212e">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Contact — Credere.ma">
+<meta property="og:description" content="Parlons de votre projet immobilier : premier échange gratuit et sans engagement.">
+<meta property="og:image" content="assets/hero.png">
+<link rel="preload" href="assets/fonts/CrimsonPro-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/DMSans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="contact">
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div data-site-header></div>
+
+<main id="main">
+
+  <section class="page-head">
+    <div class="wrap page-head-inner">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="index.html">Accueil</a></li>
+          <li><span aria-current="page">Contact</span></li>
+        </ol>
+      </nav>
+      <p class="eyebrow eyebrow--light">Contact</p>
+      <h1>Parlons de votre <em>projet immobilier</em></h1>
+      <p class="page-head-intro">Un achat, un investissement, une restructuration de crédit : décrivez-moi votre situation en quelques lignes. Je reviens vers vous avec une première lecture de votre dossier et les options de financement possibles.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="form-title">
+    <div class="wrap contact-layout">
+
+      <div class="form-card reveal">
+        <div class="form-card-head">
+          <h2 id="form-title">Demander un premier rendez-vous</h2>
+          <p>Les champs marqués d'un astérisque sont nécessaires pour vous répondre utilement.</p>
+        </div>
+
+        <form data-contact-form novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="c-name">Nom et prénom <span aria-hidden="true">*</span></label>
+              <input id="c-name" name="name" type="text" autocomplete="name" placeholder="Votre nom complet" data-required aria-describedby="c-name-error">
+              <p class="field-error" id="c-name-error"></p>
+            </div>
+
+            <div class="field">
+              <label for="c-phone">Téléphone <span aria-hidden="true">*</span></label>
+              <input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="+212 6 00 00 00 00" data-required aria-describedby="c-phone-error">
+              <p class="field-error" id="c-phone-error"></p>
+            </div>
+
+            <div class="field">
+              <label for="c-email">E-mail <span aria-hidden="true">*</span></label>
+              <input id="c-email" name="email" type="email" autocomplete="email" placeholder="vous@exemple.com" data-required data-email aria-describedby="c-email-error">
+              <p class="field-error" id="c-email-error"></p>
+            </div>
+
+            <div class="field">
+              <label for="c-city">Ville <span class="field-optional">facultatif</span></label>
+              <input id="c-city" name="city" type="text" autocomplete="address-level2" placeholder="Casablanca, Rabat, Marrakech…">
+            </div>
+
+            <div class="field">
+              <label for="c-topic">Type de projet</label>
+              <select id="c-topic" name="topic">
+                <option>Crédit immobilier</option>
+                <option>Finance islamique (Mourabaha)</option>
+                <option>Investissement locatif</option>
+                <option>Rachat de crédit</option>
+                <option>Autre projet</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="c-budget">Budget envisagé <span class="field-optional">facultatif</span></label>
+              <input id="c-budget" name="budget" type="text" inputmode="numeric" placeholder="Montant du bien ou du prêt">
+            </div>
+
+            <div class="field field--full">
+              <label for="c-message">Votre message <span aria-hidden="true">*</span></label>
+              <textarea id="c-message" name="message" rows="5" placeholder="Quelques mots sur votre projet, votre apport et l'échéance souhaitée" data-required aria-describedby="c-message-error"></textarea>
+              <p class="field-error" id="c-message-error"></p>
+            </div>
+          </div>
+
+          <div class="consent">
+            <input id="c-consent" name="consent" type="checkbox" data-required aria-describedby="c-consent-error">
+            <label for="c-consent">J'accepte que mes coordonnées soient utilisées pour être recontacté au sujet de ma demande, conformément à la <a href="https://credere.ma/" target="_blank" rel="noopener">politique de confidentialité</a>.
+              <span class="field-error" id="c-consent-error"></span>
+            </label>
+          </div>
+
+          <button class="btn btn--gold btn--block" type="submit">Envoyer ma demande</button>
+          <p class="form-note">Formulaire de démonstration : aucune demande n'est transmise. Pour un contact immédiat, appelez le +212 662 64 13 17 ou écrivez à contact@credere.ma.</p>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <aside class="contact-aside" aria-label="Coordonnées et disponibilités">
+        <div class="aside-card reveal">
+          <p class="aside-heading">Coordonnées</p>
+          <ul class="aside-list">
+            <li>
+              <a href="tel:+212662641317">
+                <span class="aside-label">Téléphone</span>
+                <span>+212 662 64 13 17</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:contact@credere.ma">
+                <span class="aside-label">E-mail</span>
+                <span>contact@credere.ma</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/212662641317" target="_blank" rel="noopener">
+                <span class="aside-label">WhatsApp</span>
+                <span>Écrire sur WhatsApp</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/credere.ma/" target="_blank" rel="noopener">
+                <span class="aside-label">Instagram</span>
+                <span>@credere.ma</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/profile.php?id=61572876809798" target="_blank" rel="noopener">
+                <span class="aside-label">Facebook</span>
+                <span>Credere.ma</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="aside-card aside-card--navy reveal">
+          <p class="aside-heading">Premier échange offert</p>
+          <h2>Un avis clair avant de vous engager</h2>
+          <p>Le premier rendez-vous sert à comprendre votre situation, pas à signer quoi que ce soit.</p>
+          <ul>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m5 12 5 5L19 7"/></svg>
+              <span>Étude de votre capacité de financement</span>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m5 12 5 5L19 7"/></svg>
+              <span>Liste des pièces à réunir</span>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m5 12 5 5L19 7"/></svg>
+              <span>Comparaison des solutions possibles</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="aside-card reveal">
+          <p class="aside-heading">Disponibilités</p>
+          <dl class="aside-hours">
+            <div><dt>Lundi – vendredi</dt><dd>9h00 – 18h00</dd></div>
+            <div><dt>Samedi</dt><dd>Sur rendez-vous</dd></div>
+            <div><dt>Dimanche</dt><dd>Fermé</dd></div>
+          </dl>
+          <p class="form-note">Rendez-vous en visioconférence ou sur place, selon votre préférence.</p>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <section class="section section--white" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Questions fréquentes</p>
+        <h2 id="faq-title">Ce qu'on me demande le plus souvent</h2>
+      </div>
+
+      <div class="faq faq--narrow">
+        <details>
+          <summary>Le premier rendez-vous est-il payant ?</summary>
+          <p>Non. Le premier échange est gratuit et sans engagement. Il permet de vérifier que votre projet est finançable et d'identifier les pièces manquantes avant de solliciter une banque.</p>
+        </details>
+        <details>
+          <summary>Quels documents préparer pour un crédit immobilier ?</summary>
+          <p>En général : une pièce d'identité, les justificatifs de revenus des trois derniers mois (bulletins de salaire ou bilans pour les indépendants), les relevés bancaires récents, le justificatif de l'apport et le document d'achat (compromis, réservation ou devis). Chaque banque peut demander des pièces complémentaires.</p>
+        </details>
+        <details>
+          <summary>Faut-il être salarié en CDI pour emprunter ?</summary>
+          <p>Non, mais le profil compte. Les salariés en CDI, les indépendants, les professions libérales et les Marocains résidant à l'étranger peuvent être étudiés. Chaque établissement applique ses propres critères de revenus, d'ancienneté et de stabilité.</p>
+        </details>
+        <details>
+          <summary>Quelle différence entre un crédit classique et la Mourabaha ?</summary>
+          <p>Le crédit classique repose sur un prêt rémunéré par des intérêts. La Mourabaha est une vente à tempérament : la banque acquiert le bien puis vous le revend à un prix convenu, payable par échéances. Le montant final est fixé dès le départ, sans intérêts.</p>
+        </details>
+        <details>
+          <summary>Travaillez-vous avec plusieurs banques ?</summary>
+          <p>Oui. Mon rôle est de présenter votre dossier aux établissements les plus adaptés à votre profil et de comparer les conditions proposées : taux, durée, assurance et frais annexes. La décision d'octroi reste celle de la banque.</p>
+        </details>
+        <details>
+          <summary>Combien de temps prend l'étude d'un dossier ?</summary>
+          <p>Le délai dépend de la complétude du dossier et du rythme d'instruction de la banque. Un dossier complet dès le premier envoi évite l'essentiel des allers-retours.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="cta-media" aria-hidden="true"></div>
+    <div class="wrap cta-inner">
+      <h2 id="cta-title">Un projet immobilier mérite un dossier solide dès le premier dépôt</h2>
+      <a class="btn btn--gold" href="tel:+212662641317">Appeler maintenant</a>
+    </div>
+  </section>
+
+</main>
+
+<div data-site-footer></div>
+
+  <script src="js/site.data.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿{
+  "note": "Visuels d'origine récupérés sur tarikcourtage.com pour la reproduction de la page d'accueil. Tous droits réservés à Tarik Courtage.",
+  "images": [
+    { "file": "assets/hero.png", "source": "https://tarikcourtage.com/wp-content/uploads/2025/01/Taricourtage-Facebook-4.png", "role": "photo de couverture du hero", "size": "2050x1155", "license": "© Tarik Courtage" },
+    { "file": "assets/portrait.png", "source": "vidéo fournie par le client — kling_20260917_VIDEO_Create_a_2_412_0.mp4, image extraite à 0 s", "role": "portrait Hicham Abbad — section À propos et avatars d'articles", "size": "1120x1284", "license": "Fourni par le client — droits à confirmer" },
+    { "file": "assets/logo.png", "source": "https://tarikcourtage.com/wp-content/uploads/2023/05/Tarik-Business-Card-8.5-x-5.5-cm-1.png", "role": "logo en-tête et pied de page", "size": "963x181", "license": "© Tarik Courtage" },
+    { "file": "assets/cta-bg.png", "source": "https://tarikcourtage.com/wp-content/uploads/2025/02/cta-section-1.png", "role": "fond du bandeau d'appel à l'action", "size": "1920x1280", "license": "© Tarik Courtage" },
+    { "file": "assets/flag-en.png", "source": "https://tarikcourtage.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_US.png", "role": "drapeau du sélecteur de langue", "size": "18x12", "license": "TranslatePress / GPL" }
+  ],
+  "fonts": [
+    { "family": "Crimson Pro", "file": "assets/fonts/CrimsonPro-400.woff2", "weight": "300-900", "license": "SIL Open Font License 1.1" },
+    { "family": "Crimson Pro", "file": "assets/fonts/CrimsonPro-400-italic.woff2", "weight": "400 italic", "license": "SIL Open Font License 1.1" },
+    { "family": "DM Sans", "file": "assets/fonts/DMSans-400.woff2", "weight": "400", "license": "SIL Open Font License 1.1" },
+    { "family": "DM Sans", "file": "assets/fonts/DMSans-500.woff2", "weight": "500", "license": "SIL Open Font License 1.1" },
+    { "family": "DM Sans", "file": "assets/fonts/DMSans-600.woff2", "weight": "600", "license": "SIL Open Font License 1.1" },
+    { "family": "DM Sans", "file": "assets/fonts/DMSans-700.woff2", "weight": "700", "license": "SIL Open Font License 1.1" }
+  ],
+  "unavailable": [
+    "resident-deco-1.png, resident-deco-2.png, residental-texture-bg-1.jpg, prop-deco-bg-3.png, decor-key.png, man-logo-combo-inv.png, man-complex-decor-bg-new.jpg : renvoient 404 sur le site source ; remplacés par des tracés CSS/SVG."
+  ]
+}

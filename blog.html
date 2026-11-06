@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- =========================================================
+     Credere.ma — page du site
+     Le menu, les coordonnées et le pied de page ne sont PAS
+     écrits ici : ils viennent de js/site.data.js et sont
+     composés par js/layout.js. Cette page ne contient que son
+     contenu propre et son <head>. Voir AGENTS.md.
+     ========================================================= -->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog — Conseils crédit immobilier au Maroc | Credere.ma</title>
+<meta name="description" content="Conseils pratiques sur le crédit immobilier au Maroc : dossier bancaire, finance islamique, investissement locatif et lecture du marché. Le blog de Credere.ma.">
+<meta name="theme-color" content="#0d212e">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Blog — Credere.ma">
+<meta property="og:description" content="Comprendre le financement immobilier au Maroc, étape par étape.">
+<meta property="og:image" content="assets/hero.png">
+<link rel="preload" href="assets/fonts/CrimsonPro-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/DMSans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="blog">
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div data-site-header></div>
+
+<main id="main">
+
+  <section class="page-head">
+    <div class="wrap page-head-inner">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="index.html">Accueil</a></li>
+          <li><span aria-current="page">Blog</span></li>
+        </ol>
+      </nav>
+      <p class="eyebrow eyebrow--light">Le blog</p>
+      <h1>Comprendre le financement <em>avant de signer</em></h1>
+      <p class="page-head-intro">Des explications concrètes sur le crédit immobilier au Maroc : monter un dossier, choisir une formule conforme, évaluer un investissement. Pas de promesse de taux, seulement des repères utiles pour décider.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="featured-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">À la une</p>
+        <h2 id="featured-title" class="visually-hidden">Article à la une</h2>
+      </div>
+
+      <article class="featured reveal">
+        <div class="featured-media" aria-hidden="true"></div>
+        <div class="featured-body">
+          <p class="post-cat">Crédit immobilier</p>
+          <h2><a href="blog-credit-immobilier-maroc.html">Crédit immobilier au Maroc : les étapes d'un dossier qui aboutit</a></h2>
+          <p>De l'estimation de votre capacité d'emprunt à la signature chez le notaire, voici l'ordre des étapes, les pièces à réunir et les points où un dossier se perd.</p>
+          <p class="post-meta"><span>12 octobre 2026</span><span>8 min de lecture</span></p>
+          <a class="btn btn--line" href="blog-credit-immobilier-maroc.html">Lire l'article</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section--white" aria-labelledby="articles-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Tous les articles</p>
+        <h2 id="articles-title">Conseils et repères</h2>
+        <p class="lead">Filtrez par thème pour aller directement au sujet qui vous concerne.</p>
+      </div>
+
+      <div class="filters reveal" data-filters role="group" aria-label="Filtrer les articles par thème">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">Tous les thèmes</button>
+        <button class="chip" type="button" data-filter="credit" aria-pressed="false">Crédit immobilier</button>
+        <button class="chip" type="button" data-filter="islamique" aria-pressed="false">Finance islamique</button>
+        <button class="chip" type="button" data-filter="investissement" aria-pressed="false">Investissement</button>
+        <button class="chip" type="button" data-filter="marche" aria-pressed="false">Marché</button>
+      </div>
+
+      <p class="post-meta post-count" data-count aria-live="polite">5 articles affichés</p>
+
+      <div class="post-grid">
+
+        <article class="post-card reveal" data-cat="islamique">
+          <div class="post-thumb">
+            <picture>
+              <source srcset="assets/cta-bg-1600.webp" type="image/webp">
+              <img src="assets/cta-bg.png" alt="" width="1600" height="900" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="post-body">
+            <p class="post-cat">Finance islamique</p>
+            <h3><a href="blog-mourabaha.html">Mourabaha : financer son logement sans intérêts</a></h3>
+            <p>Comment fonctionne cette vente à tempérament, à qui elle s'adresse et ce qu'il faut vérifier avant de s'engager.</p>
+            <p class="post-meta"><span>28 septembre 2026</span><span>6 min de lecture</span></p>
+          </div>
+        </article>
+
+        <article class="post-card reveal" data-cat="investissement">
+          <div class="post-thumb post-thumb--motif"></div>
+          <div class="post-body">
+            <p class="post-cat">Investissement</p>
+            <h3><a href="blog-investissement-locatif.html">Investissement locatif : calculer avant de visiter</a></h3>
+            <p>Rendement brut, rendement net, vacance locative et charges : la méthode pour comparer deux biens sans se raconter d'histoires.</p>
+            <p class="post-meta"><span>15 septembre 2026</span><span>7 min de lecture</span></p>
+          </div>
+        </article>
+
+        <article class="post-card post-locked reveal" data-cat="marche">
+          <div class="post-thumb post-thumb--motif"></div>
+          <div class="post-body">
+            <span class="soon-badge">En préparation</span>
+            <h3>Acheter sur plan : ce qu'il faut vérifier avant de signer</h3>
+            <p>Permis, délais de livraison, garanties et pénalités de retard : la checklist à passer au crible dans un contrat de vente en l'état futur d'achèvement.</p>
+          </div>
+        </article>
+
+        <article class="post-card post-locked reveal" data-cat="credit">
+          <div class="post-thumb post-thumb--motif"></div>
+          <div class="post-body">
+            <span class="soon-badge">En préparation</span>
+            <h3>Rachat de crédit : dans quels cas l'envisager vraiment</h3>
+            <p>Allonger la durée pour respirer ou payer davantage au total : le calcul à faire avant de regrouper plusieurs crédits.</p>
+          </div>
+        </article>
+
+        <article class="post-card post-locked reveal" data-cat="credit">
+          <div class="post-thumb post-thumb--motif"></div>
+          <div class="post-body">
+            <span class="soon-badge">En préparation</span>
+            <h3>Dossier bancaire : les pièces qui font la différence</h3>
+            <p>Un dossier complet du premier coup change le rythme de l'instruction. Voici l'ordre de classement qui évite les allers-retours.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="news-title">
+    <div class="wrap">
+      <div class="newsletter reveal">
+        <div class="newsletter-grid">
+          <div>
+            <p class="eyebrow eyebrow--light">Lettre d'information</p>
+            <h2 id="news-title">Un article par mois, sans bruit</h2>
+            <p>Les nouveaux articles du blog et les rappels de calendrier utiles pour un projet immobilier. Désinscription en un clic.</p>
+          </div>
+          <div>
+            <form class="newsletter-form" data-news-form novalidate>
+              <label class="visually-hidden" for="n-email">Votre adresse e-mail</label>
+              <input id="n-email" name="email" type="email" placeholder="vous@exemple.com" autocomplete="email">
+              <button class="btn btn--gold" type="submit">S'inscrire</button>
+            </form>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="cta-media" aria-hidden="true"></div>
+    <div class="wrap cta-inner">
+      <h2 id="cta-title">Une question sur votre propre dossier ? Parlons-en</h2>
+      <a class="btn btn--gold" href="contact.html">Prendre rendez-vous</a>
+    </div>
+  </section>
+
+</main>
+
+<div data-site-footer></div>
+
+  <script src="js/site.data.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- =========================================================
+     Credere.ma — page de référence du système de design
+     Source de vérité : DESIGN.md
+     Implémentation   : css/tokens.css
+     Cette page charge les vraies feuilles du site et montre les
+     composants réels dans leurs états. Les classes ds-* ne
+     servent qu'à la mise en page de ce document.
+     ========================================================= -->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Système de design — Credere.ma</title>
+<meta name="description" content="Palette, typographie, espacement et composants du site Credere.ma : la référence visuelle du système de design.">
+<meta name="theme-color" content="#0d212e">
+<meta name="robots" content="noindex">
+<link rel="preload" href="assets/fonts/CrimsonPro-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/DMSans-400.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/pages.css">
+<style>
+  /* ---- Mise en page de cette référence uniquement (ds-*) ---- */
+  .ds-lede { max-width: 70ch; font-size: var(--text-body-lg); line-height: var(--leading-body); color: var(--fg-body); }
+  .ds-note { max-width: 70ch; font-size: var(--text-sm); line-height: var(--leading-body); color: var(--fg-body); }
+  .ds-code { font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace; font-size: .78rem; letter-spacing: 0; color: var(--fg-accent); }
+  .ds-grid { display: grid; gap: var(--space-6); }
+  .ds-grid--3 { grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); }
+  .ds-grid--2 { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
+
+  .ds-card { display: grid; gap: var(--space-2); padding: var(--space-6); background: var(--bg-raised); border: var(--hairline); border-radius: var(--radius); }
+  .ds-card h3 { margin: 0; font-family: var(--font-display); font-size: var(--text-lead); font-weight: var(--weight-semibold); color: var(--fg-strong); }
+  .ds-card p { margin: 0; font-size: var(--text-md); line-height: var(--leading-body); color: var(--fg-body); }
+
+  .ds-brand { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-6); margin-top: var(--space-8); padding: var(--space-6); background: var(--bg-inverse); border-radius: var(--radius); }
+  .ds-brand .ds-note { margin: 0; color: var(--cream); }
+  /* Le logotype est stylé sous .brand / .footer-brand dans styles.css :
+     on reproduit ici son rendu pour la démonstration hors en-tête. */
+  .ds-brand .logo-word { font-family: var(--font-display); font-size: 1.68rem; font-weight: var(--weight-semibold); line-height: 1.15; letter-spacing: -.005em; color: var(--white); white-space: nowrap; }
+  .ds-brand .logo-word-initial { color: var(--gold-soft); font-weight: 700; }
+  .ds-brand .logo-word-dot { color: var(--gold-soft); }
+
+  /* Nuancier */
+  .ds-swatch { display: flex; flex-direction: column; overflow: hidden; background: var(--bg-raised); border: var(--hairline); border-radius: var(--radius); }
+  .ds-swatch-chip { display: flex; align-items: flex-end; justify-content: flex-end; height: 92px; padding: var(--space-3); border-bottom: var(--hairline); }
+  .ds-swatch-hex { font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace; font-size: var(--text-2xs); letter-spacing: .04em; color: var(--cream); }
+  .ds-swatch-hex--dark { color: var(--ink); }
+  .ds-swatch-body { display: grid; gap: var(--space-1); padding: var(--space-4); }
+  .ds-swatch-body h3 { margin: 0; font-family: var(--font-display); font-size: var(--text-body-lg); font-weight: var(--weight-semibold); color: var(--fg-strong); }
+  .ds-swatch-body p { margin: var(--space-1) 0 0; font-size: var(--text-2xs); line-height: var(--leading-snug); color: var(--fg-body); }
+
+  .sw-gold { background: var(--gold); }
+  .sw-gold-soft { background: var(--gold-soft); }
+  .sw-gold-deep { background: var(--gold-deep); }
+  .sw-gold-ink { background: var(--gold-ink); }
+  .sw-navy { background: var(--navy); }
+  .sw-navy-deep { background: var(--navy-deep); }
+  .sw-navy-soft { background: var(--navy-soft); }
+  .sw-cream { background: var(--cream); }
+  .sw-cream-warm { background: var(--cream-warm); }
+  .sw-white { background: var(--white); }
+  .sw-ink { background: var(--ink); }
+  .sw-ink-soft { background: var(--ink-soft); }
+  .sw-ink-mute { background: var(--ink-mute); }
+  .sw-danger { background: var(--danger); }
+
+  /* Tableaux */
+  .ds-table-wrap { overflow-x: auto; background: var(--bg-raised); border: var(--hairline); border-radius: var(--radius); padding: 0 var(--space-5); }
+  .ds-table { width: 100%; border-collapse: collapse; font-size: var(--text-md); }
+  .ds-table caption { padding: var(--space-4) 0 var(--space-2); text-align: left; font-size: var(--text-2xs); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--fg-accent); }
+  .ds-table th, .ds-table td { padding: var(--space-3) var(--space-2); text-align: left; vertical-align: top; border-bottom: var(--hairline); }
+  .ds-table tr:last-child th, .ds-table tr:last-child td { border-bottom: 0; }
+  .ds-table th { font-size: var(--text-2xs); font-weight: var(--weight-medium); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--fg-accent); }
+  .ds-table td { color: var(--fg-body); }
+  .ds-table strong { font-weight: var(--weight-medium); color: var(--fg-strong); }
+  .ds-pass { color: var(--fg-accent); white-space: nowrap; }
+  .ds-fail { color: var(--fg-danger); white-space: nowrap; }
+
+  /* Spécimens typographiques */
+  .ds-spec-row { display: grid; gap: var(--space-3); padding: var(--space-6) 0; border-bottom: var(--hairline); }
+  .ds-spec-row:last-child { border-bottom: 0; }
+  .ds-spec-label { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-3); font-size: var(--text-2xs); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--fg-accent); }
+  .ds-spec-label span { letter-spacing: 0; text-transform: none; color: var(--fg-body); }
+  .ds-spec { margin: 0; font-family: var(--font-display); font-weight: var(--weight-regular); color: var(--fg-strong); }
+  .ds-spec--h1 { font-size: var(--text-h1); line-height: var(--leading-tight); }
+  .ds-spec--display { font-size: var(--text-display); line-height: var(--leading-tight); }
+  .ds-spec--h2 { font-size: var(--text-h2); line-height: var(--leading-tight); }
+  .ds-spec--h3 { font-size: var(--text-h3); line-height: var(--leading-snug); }
+  .ds-spec--lead { font-family: var(--font-body); font-size: var(--text-lead); line-height: var(--leading-body); color: var(--fg-body); }
+  .ds-spec--body { max-width: var(--measure); font-family: var(--font-body); font-size: var(--text-body-lg); line-height: var(--leading-body); color: var(--fg-body); }
+  .ds-spec--small { font-family: var(--font-body); font-size: var(--text-sm); color: var(--fg-body); }
+
+  /* Espacement, rayons, élévation, rythme */
+  .ds-space-row { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-1) 0; }
+  .ds-space-label { min-width: 92px; font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace; font-size: var(--text-2xs); color: var(--fg-body); }
+  .ds-space-bar { flex: none; height: var(--space-3); background: var(--gold); border-radius: 2px; }
+  .ds-space-val { font-size: var(--text-2xs); color: var(--fg-body); }
+  .ds-box { display: flex; align-items: center; justify-content: center; height: 96px; background: var(--cream); border: var(--hairline); font-size: var(--text-2xs); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--fg-body); }
+  .ds-box--white { background: var(--bg-raised); }
+  .ds-box--navy { background: var(--bg-inverse); border-color: transparent; color: var(--cream); }
+  .ds-elev--sm { box-shadow: var(--shadow-sm); }
+  .ds-elev--md { box-shadow: var(--shadow-md); }
+  .ds-elev--lg { box-shadow: var(--shadow-lg); }
+
+  /* Blocs de composants */
+  .ds-block { display: grid; gap: var(--space-4); padding: var(--space-8) 0; border-top: var(--hairline); }
+  .ds-block:first-of-type { padding-top: 0; border-top: 0; }
+  .ds-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+  .ds-row--start { align-items: stretch; }
+  .ds-on-navy { display: grid; gap: var(--space-5); padding: var(--space-6); background: var(--bg-inverse); border-radius: var(--radius); color: var(--cream); }
+  .ds-on-navy p { margin: 0; color: var(--cream); }
+  .ds-forced-focus { box-shadow: var(--ring); }
+  .ds-width { max-width: 320px; }
+
+  /* Mouvement */
+  .ds-motion { display: grid; gap: var(--space-4); max-width: 560px; }
+  .ds-motion-track { height: var(--space-2); background: var(--cream-warm); border-radius: var(--radius-pill); overflow: hidden; }
+  .ds-motion-fill { display: block; width: 16%; height: 100%; background: var(--gold); border-radius: var(--radius-pill); }
+  .ds-motion-track:hover .ds-motion-fill { width: 100%; }
+  .ds-motion--fast .ds-motion-fill { transition: width var(--dur-fast) var(--ease-out); }
+  .ds-motion--base .ds-motion-fill { transition: width var(--dur-base) var(--ease-out); }
+  .ds-motion--slow .ds-motion-fill { transition: width var(--dur-slow) var(--ease-out); }
+  .ds-motion--reveal .ds-motion-fill { transition: width var(--dur-reveal) var(--ease-out); }
+
+  /* Règles */
+  .ds-rule { display: grid; gap: var(--space-3); padding: var(--space-6); background: var(--bg-raised); border: var(--hairline); border-radius: var(--radius); }
+  .ds-rule h3 { margin: 0; font-family: var(--font-display); font-size: var(--text-lead); font-weight: var(--weight-semibold); color: var(--fg-strong); }
+  .ds-rule ul { display: grid; gap: var(--space-2); margin: 0; padding-left: var(--space-5); font-size: var(--text-md); line-height: var(--leading-body); color: var(--fg-body); }
+  .ds-rule--no { border-color: var(--line-gold); }
+
+  /* Petits écrans : la référence reste lisible et ne déborde pas.
+     Bloc placé en dernier : à spécificité égale, il doit passer après
+     les règles de base qu'il ajuste. */
+  @media (max-width: 767px) {
+    .ds-card { padding: var(--space-5); }
+    .ds-brand { padding: var(--space-5); }
+    .ds-swatch-chip { height: 76px; }
+    .ds-table-wrap { padding: 0 var(--space-4); }
+    .ds-table { font-size: 1rem; }
+    .ds-table th,
+    .ds-table td { padding: var(--space-3); }
+    .ds-space-row { gap: var(--space-3); }
+  }
+
+  @media (max-width: 480px) {
+    .ds-space-label { min-width: 66px; }
+    .ds-space-row { flex-wrap: wrap; gap: var(--space-1) var(--space-3); }
+  }
+</style>
+</head>
+<body data-page="design-system">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<div data-site-header></div>
+
+<main id="contenu">
+
+  <section class="page-head">
+    <div class="wrap page-head-inner">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="index.html">Accueil</a></li>
+          <li><span aria-current="page">Système de design</span></li>
+        </ol>
+      </nav>
+      <p class="eyebrow eyebrow--light">Référence</p>
+      <h1>Le système de design de <em>Credere.ma</em></h1>
+      <p class="page-head-intro">Palette, typographie, espacement, composants et règles d'usage. Cette page montre les composants réels du site, dans leurs états réels : elle charge les mêmes feuilles de style que les autres pages. Toute décision visuelle s'écrit d'abord dans <span class="ds-code">DESIGN.md</span>, puis se traduit une seule fois dans <span class="ds-code">css/tokens.css</span>.</p>
+    </div>
+  </section>
+
+  <!-- ============ 1. IDENTITÉ ============ -->
+  <section class="section section--white" aria-labelledby="ds-identite">
+    <div class="wrap">
+      <p class="eyebrow">1 — Identité</p>
+      <h2 id="ds-identite">Un courtier, pas une banque</h2>
+      <p class="ds-lede">Credere.ma accompagne des particuliers et des investisseurs dans leur financement immobilier au Maroc. Le site doit inspirer la compétence bancaire et la proximité d'un conseil privé : sobre, précis, jamais commercial. Aucune promesse chiffrée, aucun témoignage inventé, aucune urgence artificielle.</p>
+
+      <div class="ds-grid ds-grid--3" style="margin-top: var(--space-8);">
+        <article class="ds-card">
+          <h3>Sobre et assuré</h3>
+          <p>Fond clair, texte dense, filets fins. L'autorité vient de la typographie et du blanc, pas de la décoration.</p>
+        </article>
+        <article class="ds-card">
+          <h3>L'or en signal, jamais en fond</h3>
+          <p>L'or marque un repère : un numéro, un filet, un bouton. Il ne remplit jamais une grande surface.</p>
+        </article>
+        <article class="ds-card">
+          <h3>Éditorial, pas corporate</h3>
+          <p>Crimson Pro pour les titres, phrases complètes en français, un seul interlocuteur du premier échange à la signature.</p>
+        </article>
+      </div>
+
+      <div class="ds-brand">
+        <span class="logo-word"><span class="logo-word-initial">C</span>redere</span>
+        <p class="ds-note">La marque est composée en texte, jamais en image : Crimson Pro, point doré. Elle se place uniquement sur fond nuit, où son contraste est de 16,48:1.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. PALETTE ============ -->
+  <section class="section" aria-labelledby="ds-palette">
+    <div class="wrap">
+      <p class="eyebrow">2 — Palette</p>
+      <h2 id="ds-palette">Trois familles, aucun dégradé décoratif</h2>
+      <p class="ds-lede">Or, bleu nuit, crème. Le blanc et l'encre servent de neutres ; le rouge est réservé aux erreurs de formulaire. Les ratios ci-dessous sont mesurés sur les valeurs exactes du fichier de jetons.</p>
+
+      <p class="eyebrow" style="margin-top: var(--space-8);">Or</p>
+      <div class="ds-grid ds-grid--3">
+        <article class="ds-swatch">
+          <div class="ds-swatch-chip sw-gold"><span class="ds-swatch-hex ds-swatch-hex--dark">#d3a05e</span></div>
+          <div class="ds-swatch-body">
+            <h3>Or</h3>
+            <code class="ds-code">--gold</code>
+            <p>Accent principal : boutons pleins, numéros, filets, initiale du logotype.</p>
+          </div>
+        </article>
+        <article class="ds-swatch">
+          <div class="ds-swatch-chip sw-gold-soft"><span class="ds-swatch-hex ds-swatch-hex--dark">#e6b06c</span></div>
+          <div class="ds-swatch-body">
+            <h3>Or clair</h3>
+            <code class="ds-code">--gold-soft</code>
+            <p>Étiquettes et accents sur fond nuit, survol du bouton or, anneau de focus.</p>
+          </div>
+        </article>
+        <article class="ds-swatch">
+          <div class="ds-swatch-chip sw-gold-deep"><span class="ds-swatch-hex ds-swatch-hex--dark">#c8924c</span></div>
+          <div class="ds-swatch-body">
+            <h3>Or profond</h3>
+            <code class="ds-code">--gold-deep</code>
+            <p>Survol des boutons à filet, bordures dorées d'état actif.</p>
+          </div>
+        </article>
+        <article class="ds-swatch">
+          <div class="ds-swatch-chip sw-gold-ink"><span class="ds-swatch-hex">#7f5726</span></div>
+          <div class="ds-swatch-body">
+            <h3>Or encre</h3>
+            <code class="ds-code">--gold-ink</code>
+            <p>Le seul or autorisé pour du texte sur fond clair : 5,52:1 sur crème.</p>
+          </div>
+        </article>
+      </div>
+
+      <p class="eyebrow" style="margin-top: var(--space-8);">Bleu nuit</p>
+      <div class="ds-grid ds-grid--3">
+        <article class="ds-swatch">
+          <div class="ds-swatch-chip sw-navy"><span class="ds-swatch-hex">#0d212e</span></div>
+          <div class="ds-swatch-body">
+            <h3>Nuit</h3>
+            <code class="ds-code">--navy</code>
+            <p>Fond des bandeaux, du pied de page et du bouton fantôme.</p>
+          </div>
+        </article>
+        <article class="ds-swatch">
+          <div class="ds-swatch-chip sw-navy-deep"><span class="ds-swatch-hex">#091a24</span></div>
+          <div class="ds-swatch-body">
+            <h3>Nuit profonde</h3>
+            <code class="ds-code">--navy-deep</code>
+            <p>Voile de l'en-tête au défilement, ombres portées.</p>
+          </div>
+        </article>
+        <article class="ds-swatch">
+          <div class="ds-swatch-chip sw-navy-soft"><span class="ds-swatch-hex">#12303f</span></div>
+          <div class="ds-swatch-body">
+            <h3>Nuit adoucie</h3>
+            <code class="ds-code">--navy-soft</code>
+            <p>Survols et surfaces secondaires sur fond nuit.</p>
+          </div>
+        </article>
+      </div>
+
+      <p class="eyebrow" style="margin-top: var(--space-8);">Neutres</p>
+      <div class="ds-grid ds-grid--3">
+        <article class="ds-swatch">
+          <div class="ds-swatch-chip sw-cream"><span class="ds-swatch-hex ds-swatch-hex--dark">#f2eee9</span></div>
+          <div class="ds-swatch-body">
+            <h3>Crème</h3>
+            <code class="ds-code">--cream</code>
+            <p>Fond de page par défaut et texte sur fond nuit.</p>
+          </div>
+        </article>
+        <article class="ds-swatch">
+          <div class="ds-swatch-chip sw-cream-warm"><span class="ds-swatch-hex ds-swatch-hex--dark">#e6e0d7</span></div>
+          <div class="ds-swatch-body">
+            <h3>Crème chaude</h3>
+            <code class="ds-code">--cream-warm</code>
+            <p>Pistes de progression, surfaces en retrait, séparateurs doux.</p>
+          </div>
+        </article>
+        <article class="ds-swatch">
+          <div class="ds-swatch-chip sw-white"><span class="ds-swatch-hex ds-swatch-hex--dark">#ffffff</span></div>
+          <div class="ds-swatch-body">
+            <h3>Blanc</h3>
+            <code class="ds-code">--white</code>
+            <p>Cartes, formulaires, sections alternées.</p>
+          </div>
+        </article>
+        <article class="ds-swatch">
+          <div class="ds-swatch-chip sw-ink"><span class="ds-swatch-hex">#171717</span></div>
+          <div class="ds-swatch-body">
+            <h3>Encre</h3>
+            <code class="ds-code">--ink</code>
+            <p>Titres et texte fort. 15,52:1 sur crème.</p>
+          </div>
+        </article>
+        <article class="ds-swatch">
+          <div class="ds-swatch-chip sw-ink-soft"><span class="ds-swatch-hex">#42515b</span></div>
+          <div class="ds-swatch-body">
+            <h3>Encre douce</h3>
+            <code class="ds-code">--ink-soft</code>
+            <p>Texte courant, descriptions. 7,10:1 sur crème.</p>
+          </div>
+        </article>
+        <article class="ds-swatch">
+          <div class="ds-swatch-chip sw-ink-mute"><span class="ds-swatch-hex">#8d979d</span></div>
+          <div class="ds-swatch-body">
+            <h3>Encre muette</h3>
+            <code class="ds-code">--ink-mute</code>
+            <p>Décor seulement : 2,58:1 sur crème, donc jamais de texte lisible.</p>
+          </div>
+        </article>
+        <article class="ds-swatch">
+          <div class="ds-swatch-chip sw-danger"><span class="ds-swatch-hex">#a3241f</span></div>
+          <div class="ds-swatch-body">
+            <h3>Erreur</h3>
+            <code class="ds-code">--danger</code>
+            <p>Messages de champ invalide uniquement. Toujours doublé d'un texte.</p>
+          </div>
+        </article>
+      </div>
+
+      <p class="eyebrow" style="margin-top: var(--space-10);">Associations vérifiées</p>
+      <div class="ds-table-wrap">
+        <table class="ds-table">
+          <caption>Contraste mesuré — seuil AA : 4,5:1 pour le texte courant, 3:1 pour le texte large et les éléments d'interface.</caption>
+          <thead>
+            <tr><th scope="col">Association</th><th scope="col">Ratio</th><th scope="col">Niveau</th><th scope="col">Usage</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Encre</strong> sur crème</td><td>15,52:1</td><td class="ds-pass">AAA</td><td>Titres, texte fort</td></tr>
+            <tr><td><strong>Encre</strong> sur blanc</td><td>17,93:1</td><td class="ds-pass">AAA</td><td>Cartes, formulaires</td></tr>
+            <tr><td><strong>Encre douce</strong> sur crème</td><td>7,10:1</td><td class="ds-pass">AAA</td><td>Texte courant</td></tr>
+            <tr><td><strong>Encre douce</strong> sur blanc</td><td>8,20:1</td><td class="ds-pass">AAA</td><td>Texte de composant</td></tr>
+            <tr><td><strong>Or encre</strong> sur crème</td><td>5,52:1</td><td class="ds-pass">AA</td><td>Étiquettes dorées, liens</td></tr>
+            <tr><td><strong>Nuit</strong> sur or</td><td>6,84:1</td><td class="ds-pass">AA</td><td>Texte du bouton or</td></tr>
+            <tr><td><strong>Crème</strong> sur nuit</td><td>14,27:1</td><td class="ds-pass">AAA</td><td>Texte des bandeaux</td></tr>
+            <tr><td><strong>Or</strong> sur nuit</td><td>7,03:1</td><td class="ds-pass">AAA</td><td>Numéros, filets, grandes icônes</td></tr>
+            <tr><td><strong>Or clair</strong> sur nuit</td><td>8,47:1</td><td class="ds-pass">AAA</td><td>Étiquettes sur fond nuit</td></tr>
+            <tr><td><strong>Erreur</strong> sur crème</td><td>6,43:1</td><td class="ds-pass">AA</td><td>Messages d'erreur</td></tr>
+            <tr><td><strong>Encre muette</strong> sur crème</td><td>2,58:1</td><td class="ds-fail">Échec</td><td>Décor uniquement</td></tr>
+            <tr><td><strong>Encre muette</strong> sur blanc</td><td>2,98:1</td><td class="ds-fail">Échec</td><td>Décor uniquement</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ds-grid ds-grid--2" style="margin-top: var(--space-6);">
+        <article class="ds-card">
+          <h3>Associations autorisées</h3>
+          <p>Or encre sur crème ou blanc. Or et or clair sur nuit. Crème sur nuit. Nuit sur or. Encre et encre douce sur crème ou blanc.</p>
+        </article>
+        <article class="ds-card">
+          <h3>Interdits</h3>
+          <p>Or sur crème (2,58:1), encre muette en texte, nuit sur nuit, blanc sur or clair, couleur seule pour signaler une erreur ou un état actif.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. TYPOGRAPHIE ============ -->
+  <section class="section section--white" aria-labelledby="ds-typo">
+    <div class="wrap">
+      <p class="eyebrow">3 — Typographie</p>
+      <h2 id="ds-typo">Crimson Pro pour le discours, DM Sans pour l'interface</h2>
+      <p class="ds-lede">Crimson Pro porte les titres, les chiffres et les citations ; DM Sans porte le texte courant, les boutons, les étiquettes et les formulaires. Les deux familles sont servies en local depuis <span class="ds-code">assets/fonts/</span>, sans CDN.</p>
+
+      <div class="ds-spec-row">
+        <p class="ds-spec-label">Titre de page <span>--text-h1 · clamp(2.7rem, 6.6vw, 5.6rem) · interligne 1.08</span></p>
+        <p class="ds-spec ds-spec--h1">Votre projet immobilier, mon expertise.</p>
+      </div>
+      <div class="ds-spec-row">
+        <p class="ds-spec-label">Titre de section <span>--text-h2 · clamp(1.85rem, 3.2vw, 3rem)</span></p>
+        <p class="ds-spec ds-spec--h2">Un service adapté à chaque besoin</p>
+      </div>
+      <div class="ds-spec-row">
+        <p class="ds-spec-label">Sous-titre <span>--text-h3 · clamp(1.35rem, 1.9vw, 1.62rem)</span></p>
+        <p class="ds-spec ds-spec--h3">Achat de résidence principale</p>
+      </div>
+      <div class="ds-spec-row">
+        <p class="ds-spec-label">Chapô <span>--text-lead · 1.15rem · DM Sans</span></p>
+        <p class="ds-spec ds-spec--lead">Plus de vingt ans de banque de détail, un double parcours financier et commercial, une pratique d'expert bancaire agréé par les tribunaux.</p>
+      </div>
+      <div class="ds-spec-row">
+        <p class="ds-spec-label">Texte courant <span>--text-body-lg · 1.06rem · interligne 1.65 · mesure 66 caractères</span></p>
+        <p class="ds-spec ds-spec--body">Le dossier est étudié avec vous, comparé entre les établissements, puis monté jusqu'à la signature. Aucune banque n'est privilégiée : la recommandation suit votre profil, votre apport et votre horizon de remboursement.</p>
+      </div>
+      <div class="ds-spec-row">
+        <p class="ds-spec-label">Texte de composant <span>--text-body · 0.95rem</span></p>
+        <p class="ds-spec ds-spec--small">Les champs marqués d'un astérisque sont nécessaires pour vous répondre utilement.</p>
+      </div>
+      <div class="ds-spec-row">
+        <p class="ds-spec-label">Étiquette <span>--text-xs · 0.74rem · capitales · interlettre 0.24em</span></p>
+        <p class="eyebrow">Mes services</p>
+      </div>
+
+      <p class="eyebrow" style="margin-top: var(--space-10);">Échelle complète</p>
+      <div class="ds-table-wrap">
+        <table class="ds-table">
+          <thead>
+            <tr><th scope="col">Jeton</th><th scope="col">Valeur</th><th scope="col">Usage</th><th scope="col">Famille</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code class="ds-code">--text-2xs</code></td><td>0.68rem</td><td>Mentions, compteurs, légendes</td><td>DM Sans</td></tr>
+            <tr><td><code class="ds-code">--text-xs</code></td><td>0.74rem</td><td>Étiquettes, fil d'Ariane</td><td>DM Sans</td></tr>
+            <tr><td><code class="ds-code">--text-sm</code></td><td>0.8rem</td><td>Boutons, interface</td><td>DM Sans</td></tr>
+            <tr><td><code class="ds-code">--text-md</code></td><td>0.9rem</td><td>Métadonnées, petits paragraphes</td><td>DM Sans</td></tr>
+            <tr><td><code class="ds-code">--text-body</code></td><td>0.95rem</td><td>Texte des composants</td><td>DM Sans</td></tr>
+            <tr><td><code class="ds-code">--text-body-lg</code></td><td>1.06rem</td><td>Corps de page, articles</td><td>DM Sans</td></tr>
+            <tr><td><code class="ds-code">--text-lead</code></td><td>1.15rem</td><td>Chapô, introduction</td><td>DM Sans</td></tr>
+            <tr><td><code class="ds-code">--text-h3</code></td><td>1.35 → 1.62rem</td><td>Titre de carte, sous-titre</td><td>Crimson Pro</td></tr>
+            <tr><td><code class="ds-code">--text-h2</code></td><td>1.85 → 3rem</td><td>Titre de section</td><td>Crimson Pro</td></tr>
+            <tr><td><code class="ds-code">--text-display</code></td><td>2 → 3.45rem</td><td>Titre de page intérieure</td><td>Crimson Pro</td></tr>
+            <tr><td><code class="ds-code">--text-h1</code></td><td>2.7 → 5.6rem</td><td>Titre d'accueil, hero</td><td>Crimson Pro</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ds-grid ds-grid--2" style="margin-top: var(--space-6);">
+        <article class="ds-card">
+          <h3>Graisses disponibles</h3>
+          <p>Crimson Pro 300, 400, 400 italique, 500, 600, 700. DM Sans 300, 400, 500, 600, 700. En pratique : 400 pour le texte, 500 pour l'interface et les étiquettes, 600 pour un titre de carte.</p>
+        </article>
+        <article class="ds-card">
+          <h3>Interlignes et interlettres</h3>
+          <p>--leading-tight 1.08 pour les grands titres, --leading-snug 1.3 pour les sous-titres, --leading-body 1.65 pour le texte. Interlettre : 0.24em sur les étiquettes, 0.13em sur les boutons, 0.06em sur les filtres.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. ESPACEMENT ============ -->
+  <section class="section" aria-labelledby="ds-espace">
+    <div class="wrap">
+      <p class="eyebrow">4 — Espacement, rayons, élévation</p>
+      <h2 id="ds-espace">Un rythme en multiples de 4</h2>
+      <p class="ds-lede">Aucune valeur d'espacement hors échelle. La page respire par les sections (64 → 112 px de haut et de bas) et se cale sur une gouttière fluide de 20 à 44 px.</p>
+
+      <div class="ds-grid ds-grid--2" style="margin-top: var(--space-8);">
+        <div class="ds-card">
+          <h3>Échelle d'espacement</h3>
+          <div class="ds-space-row"><span class="ds-space-label">--space-1</span><span class="ds-space-bar" style="width: var(--space-1);"></span><span class="ds-space-val">4 px</span></div>
+          <div class="ds-space-row"><span class="ds-space-label">--space-2</span><span class="ds-space-bar" style="width: var(--space-2);"></span><span class="ds-space-val">8 px</span></div>
+          <div class="ds-space-row"><span class="ds-space-label">--space-3</span><span class="ds-space-bar" style="width: var(--space-3);"></span><span class="ds-space-val">12 px</span></div>
+          <div class="ds-space-row"><span class="ds-space-label">--space-4</span><span class="ds-space-bar" style="width: var(--space-4);"></span><span class="ds-space-val">16 px</span></div>
+          <div class="ds-space-row"><span class="ds-space-label">--space-5</span><span class="ds-space-bar" style="width: var(--space-5);"></span><span class="ds-space-val">20 px</span></div>
+          <div class="ds-space-row"><span class="ds-space-label">--space-6</span><span class="ds-space-bar" style="width: var(--space-6);"></span><span class="ds-space-val">24 px</span></div>
+          <div class="ds-space-row"><span class="ds-space-label">--space-7</span><span class="ds-space-bar" style="width: var(--space-7);"></span><span class="ds-space-val">32 px</span></div>
+          <div class="ds-space-row"><span class="ds-space-label">--space-8</span><span class="ds-space-bar" style="width: var(--space-8);"></span><span class="ds-space-val">40 px</span></div>
+          <div class="ds-space-row"><span class="ds-space-label">--space-9</span><span class="ds-space-bar" style="width: var(--space-9);"></span><span class="ds-space-val">48 px</span></div>
+          <div class="ds-space-row"><span class="ds-space-label">--space-10</span><span class="ds-space-bar" style="width: var(--space-10);"></span><span class="ds-space-val">56 px</span></div>
+          <div class="ds-space-row"><span class="ds-space-label">--space-11</span><span class="ds-space-bar" style="width: var(--space-11);"></span><span class="ds-space-val">64 px</span></div>
+          <div class="ds-space-row"><span class="ds-space-label">--space-12</span><span class="ds-space-bar" style="width: var(--space-12);"></span><span class="ds-space-val">80 px</span></div>
+          <div class="ds-space-row"><span class="ds-space-label">--space-13</span><span class="ds-space-bar" style="width: var(--space-13);"></span><span class="ds-space-val">96 px</span></div>
+          <div class="ds-space-row"><span class="ds-space-label">--space-15</span><span class="ds-space-bar" style="width: var(--space-15);"></span><span class="ds-space-val">128 px</span></div>
+        </div>
+
+        <div style="display: grid; gap: var(--space-6);">
+          <div class="ds-card">
+            <h3>Grille et largeurs</h3>
+            <p>Conteneur 1240 px, gouttière clamp(20px, 4vw, 44px), hauteur d'en-tête 88 px, hauteur de section clamp(64px, 8.5vw, 112px), largeur de lecture 66 caractères.</p>
+          </div>
+          <div class="ds-card">
+            <h3>Rayons</h3>
+            <div class="ds-row" style="margin-top: var(--space-2);">
+              <div class="ds-box ds-box--white" style="width: 120px; border-radius: var(--radius);">8 px</div>
+              <div class="ds-box ds-box--white" style="width: 120px; border-radius: var(--radius-lg);">14 px</div>
+              <div class="ds-box ds-box--white" style="width: 120px; border-radius: var(--radius-pill);">999 px</div>
+            </div>
+            <p>8 px par défaut (cartes, boutons, champs), 14 px pour les grands blocs, 999 px réservé aux filtres.</p>
+          </div>
+          <div class="ds-card">
+            <h3>Élévation</h3>
+            <div class="ds-row" style="margin-top: var(--space-2);">
+              <div class="ds-box" style="width: 120px; box-shadow: var(--shadow-sm);">sm</div>
+              <div class="ds-box" style="width: 120px; box-shadow: var(--shadow-md);">md</div>
+              <div class="ds-box" style="width: 120px; box-shadow: var(--shadow-lg);">lg</div>
+            </div>
+            <p>L'ombre est froide et très diffuse, jamais un contour net. Une seule élévation par composition.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="eyebrow" style="margin-top: var(--space-10);">Rythme des fonds</p>
+      <div class="ds-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-top: var(--space-4);">
+        <div class="ds-box ds-box--navy">Bandeau nuit</div>
+        <div class="ds-box ds-box--white">Section blanche</div>
+        <div class="ds-box">Section crème</div>
+        <div class="ds-box ds-box--white">Section blanche</div>
+        <div class="ds-box ds-box--navy">Pied de page nuit</div>
+      </div>
+      <p class="ds-note" style="margin-top: var(--space-4);">La page d'accueil ouvre sur le hero photographique, puis alterne crème et nuit. Les pages intérieures ouvrent sur un bandeau nuit, puis alternent blanc et crème. Deux sections de même fond ne se suivent jamais.</p>
+    </div>
+  </section>
+
+  <!-- ============ 5. COMPOSANTS ============ -->
+  <section class="section section--white" aria-labelledby="ds-composants">
+    <div class="wrap">
+      <p class="eyebrow">5 — Composants</p>
+      <h2 id="ds-composants">Les éléments réels du site</h2>
+      <p class="ds-lede">Chaque exemple ci-dessous utilise les classes des pages, sans surcharge : ce que vous voyez ici est exactement ce qui s'affiche sur le site.</p>
+
+      <div class="ds-block" style="margin-top: var(--space-8);">
+        <p class="eyebrow">Boutons</p>
+        <p class="ds-note">Un seul bouton or par vue : c'est l'action attendue. Le bouton à filet est l'action secondaire ; le bouton fantôme ne vit que sur fond nuit. Hauteur constante 15/26 px, capitales, interlettre 0.13em, rayon 8 px.</p>
+        <div class="ds-row">
+          <button class="btn btn--gold" type="button">Prendre rendez-vous</button>
+          <button class="btn btn--line" type="button">En savoir plus</button>
+          <button class="btn btn--gold ds-forced-focus" type="button">État de focus</button>
+          <button class="btn btn--gold" type="button" disabled>Désactivé</button>
+        </div>
+        <div class="ds-on-navy">
+          <p class="ds-note" style="color: var(--cream);">Sur fond nuit</p>
+          <div class="ds-row">
+            <button class="btn btn--gold" type="button">Prendre rendez-vous</button>
+            <button class="btn btn--ghost" type="button">Découvrir mes services</button>
+          </div>
+        </div>
+        <div class="ds-width">
+          <button class="btn btn--gold btn--block" type="button">Envoyer ma demande</button>
+        </div>
+        <p class="ds-note">Survol : or clair et translation de 1 px vers le haut. Actif : retour à 0. Désactivé : opacité réduite, curseur interdit, aucun survol.</p>
+      </div>
+
+      <div class="ds-block">
+        <p class="eyebrow">Étiquettes et titres</p>
+        <p class="ds-note">L'étiquette dorée en capitales ouvre chaque section. Elle précède toujours un titre, jamais un paragraphe seul.</p>
+        <div>
+          <p class="eyebrow">Mes services</p>
+          <h3 style="margin: 0;">Un service adapté à chaque besoin</h3>
+          <p class="ds-note" style="margin-top: var(--space-2);">Un seul H1 par page ; les sections descendent ensuite en H2 puis H3, sans saut de niveau.</p>
+        </div>
+        <div class="ds-on-navy">
+          <p class="eyebrow eyebrow--light" style="margin: 0;">Sur fond nuit</p>
+          <p class="ds-note" style="color: var(--cream);">Variante claire de l'étiquette : or clair, 8,47:1.</p>
+        </div>
+      </div>
+
+      <div class="ds-block">
+        <p class="eyebrow">Badges de crédibilité</p>
+        <p class="ds-note">Une liste de preuves courtes, chacune avec une icône de validation. L'icône ne remplace jamais le texte.</p>
+        <ul class="badge-list">
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>
+            Expert bancaire agréé par les tribunaux
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>
+            Plus de 20 ans d'expérience en banque de détail
+          </li>
+        </ul>
+      </div>
+
+      <div class="ds-block">
+        <p class="eyebrow">Filtres</p>
+        <p class="ds-note">Filtres du blog : pastilles pilules, état actif porté par <span class="ds-code">aria-pressed</span> — donc lisible au lecteur d'écran, pas seulement par la couleur.</p>
+        <div class="filters">
+          <button class="chip" type="button" aria-pressed="true">Tous les articles</button>
+          <button class="chip" type="button" aria-pressed="false">Crédit immobilier</button>
+          <button class="chip" type="button" aria-pressed="false">Finance islamique</button>
+          <button class="chip" type="button" aria-pressed="false">Investissement</button>
+        </div>
+      </div>
+
+      <div class="ds-block">
+        <p class="eyebrow">Champs de formulaire</p>
+        <p class="ds-note">Étiquette toujours visible au-dessus du champ, jamais un simple texte d'exemple. L'astérisque signale un champ requis ; « facultatif » est écrit en toutes lettres. L'erreur s'affiche sous le champ, en rouge, avec <span class="ds-code">aria-invalid</span> et le message relié au champ.</p>
+        <div class="form-card">
+          <div class="form-grid">
+            <div class="field">
+              <label for="ds-name">Nom et prénom <span aria-hidden="true">*</span></label>
+              <input id="ds-name" type="text" placeholder="Votre nom complet">
+            </div>
+            <div class="field">
+              <label for="ds-city">Ville <span class="field-optional">facultatif</span></label>
+              <input id="ds-city" type="text" placeholder="Casablanca, Rabat, Marrakech…">
+            </div>
+            <div class="field has-error">
+              <label for="ds-email">E-mail <span aria-hidden="true">*</span></label>
+              <input id="ds-email" type="email" value="nom@" aria-invalid="true" aria-describedby="ds-email-error">
+              <p class="field-error" id="ds-email-error">Merci d'indiquer une adresse e-mail valide.</p>
+            </div>
+            <div class="field">
+              <label for="ds-topic">Type de projet</label>
+              <select id="ds-topic">
+                <option>Crédit immobilier</option>
+                <option>Finance islamique (Mourabaha)</option>
+                <option>Investissement locatif</option>
+              </select>
+            </div>
+            <div class="field field--full">
+              <label for="ds-message">Votre message</label>
+              <textarea id="ds-message" rows="4" placeholder="Quelques mots sur votre projet"></textarea>
+            </div>
+          </div>
+          <div class="consent">
+            <input id="ds-consent" type="checkbox">
+            <label for="ds-consent">J'accepte que mes coordonnées soient utilisées pour être recontacté au sujet de ma demande.</label>
+          </div>
+          <button class="btn btn--gold btn--block" type="button">Envoyer ma demande</button>
+          <p class="form-note">Formulaire de démonstration : aucune demande n'est transmise.</p>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="ds-block">
+        <p class="eyebrow">Cartes de service</p>
+        <p class="ds-note">Numéro doré, titre, phrase courte. Fond nuit, filet doré, aucun bouton : c'est un repère de lecture, pas une carte cliquable.</p>
+        <div class="ds-on-navy">
+          <ul class="services-grid">
+            <li class="service">
+              <span class="service-num">01</span>
+              <h3>Achat de résidence principale</h3>
+              <p>Transformez votre rêve de résidence principale en réalité, avec un financement adapté à votre profil.</p>
+            </li>
+            <li class="service">
+              <span class="service-num">02</span>
+              <h3>Rachat de taux</h3>
+              <p>Réduisez vos mensualités en bénéficiant de meilleures conditions de crédit.</p>
+            </li>
+            <li class="service">
+              <span class="service-num">03</span>
+              <h3>Finance islamique</h3>
+              <p>Une solution de financement conforme aux principes de la Mourabaha.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. MOUVEMENT ET ACCESSIBILITÉ ============ -->
+  <section class="section" aria-labelledby="ds-mouvement">
+    <div class="wrap">
+      <p class="eyebrow">6 — Mouvement et accessibilité</p>
+      <h2 id="ds-mouvement">Le mouvement explique un changement d'état</h2>
+      <p class="ds-lede">Aucune animation décorative. Survols et transitions de couleur : 0,18 à 0,22 s. Ouvertures de panneaux : 0,26 s. Apparition au défilement : 0,35 s. Grande révélation : 0,55 s. Les sorties sont plus courtes que les entrées.</p>
+
+      <div class="ds-grid ds-grid--2" style="margin-top: var(--space-8);">
+        <div class="ds-card">
+          <h3>Durées</h3>
+          <p class="ds-note" style="margin-bottom: var(--space-3);">Survolez une piste pour voir la durée associée.</p>
+          <div class="ds-motion">
+            <div class="ds-motion-track ds-motion--fast" title="--dur-fast : 0,18 s"><span class="ds-motion-fill"></span></div>
+            <div class="ds-motion-track ds-motion--base"><span class="ds-motion-fill"></span></div>
+            <div class="ds-motion-track ds-motion--slow"><span class="ds-motion-fill"></span></div>
+            <div class="ds-motion-track ds-motion--reveal"><span class="ds-motion-fill"></span></div>
+          </div>
+          <p class="ds-note" style="margin-top: var(--space-3);">--dur-fast 0,18 s · --dur-base 0,22 s · --dur-slow 0,35 s · --dur-reveal 0,55 s. Courbe unique : --ease-out.</p>
+        </div>
+
+        <div class="ds-card">
+          <h3>Focus et mouvement réduit</h3>
+          <p>Tout élément interactif reçoit un anneau visible de 3 px (<span class="ds-code">--ring</span>), y compris sur fond nuit. Le site respecte <span class="ds-code">prefers-reduced-motion</span> : les transitions tombent à 0,01 ms et aucune apparition ne masque de contenu.</p>
+          <div class="ds-row" style="margin-top: var(--space-3);">
+            <button class="btn btn--gold ds-forced-focus" type="button">Anneau de focus</button>
+            <a class="btn btn--line" href="#ds-mouvement">Lien de navigation</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-card" style="margin-top: var(--space-6);">
+        <h3>Plancher d'accessibilité</h3>
+        <p>Contraste corps de texte ≥ 4,5:1 et grands titres ≥ 3:1, mesuré sur les valeurs exactes ci-dessus. Un seul <span class="ds-code">h1</span> par page, hiérarchie de titres sans saut. Cible cliquable d'au moins 44 px de haut. Lien d'évitement en tête de page. Aucune information portée par la couleur seule : l'état actif du menu utilise <span class="ds-code">aria-current</span>, celui des filtres <span class="ds-code">aria-pressed</span>. Images décoratives en <span class="ds-code">aria-hidden</span>, portraits avec un texte alternatif nommant la personne.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. RÈGLES ============ -->
+  <section class="section section--white" aria-labelledby="ds-regles">
+    <div class="wrap">
+      <p class="eyebrow">7 — Règles d'usage</p>
+      <h2 id="ds-regles">À faire, à ne pas faire</h2>
+      <p class="ds-lede">Ces règles valent pour un humain comme pour un agent IA. Elles priment sur toute préférence personnelle et sur les habitudes d'un autre projet.</p>
+
+      <div class="ds-grid ds-grid--2" style="margin-top: var(--space-8);">
+        <article class="ds-rule">
+          <h3>À faire</h3>
+          <ul>
+            <li>Écrire une valeur nouvelle dans <span class="ds-code">DESIGN.md</span>, puis l'ajouter à <span class="ds-code">css/tokens.css</span>.</li>
+            <li>Utiliser <span class="ds-code">var(--…)</span> pour toute couleur, taille, espace, rayon, durée.</li>
+            <li>Un seul bouton or par vue ; le reste en filet ou en fantôme.</li>
+            <li>Alterner les fonds de section, blanc et crème.</li>
+            <li>Écrire des textes vérifiables : pas de chiffre, de prix ni de délai inventé.</li>
+            <li>Signaler un formulaire de démonstration comme tel sous le bouton d'envoi.</li>
+          </ul>
+        </article>
+        <article class="ds-rule ds-rule--no">
+          <h3>À ne pas faire</h3>
+          <ul>
+            <li>Une couleur littérale dans <span class="ds-code">styles.css</span> ou <span class="ds-code">pages.css</span>.</li>
+            <li>De l'or en couleur de texte courant sur crème, ou de l'encre muette en texte.</li>
+            <li>Des dégradés décoratifs, un fond orange ou crème orangé, un lavis violet.</li>
+            <li>Une icône devant chaque titre, ou des emoji tenant lieu d'icône.</li>
+            <li>Des cartes à liseré coloré, des ombres dures, des coins très arrondis.</li>
+            <li>Un survol qui éclaircit le texte jusqu'à le rendre illisible.</li>
+            <li>Un état actif signalé par la seule couleur, sans attribut ARIA.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="ds-brand" style="margin-top: var(--space-8);">
+        <p class="ds-note">Référence texte : <span class="ds-code" style="color: var(--gold-soft);">DESIGN.md</span> · Implémentation : <span class="ds-code" style="color: var(--gold-soft);">css/tokens.css</span> · Contrôle visuel : cette page.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div data-site-footer></div>
+
+<script src="js/site.data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Métadonnées de l'outil de design (non publiées)
+.file-versions/
+.od-frames/
+.od-skills/
+*.artifact.json
+
+# Sources et brouillons hors site
+*.mp4
+audit*.txt
+audit*.js
+peek*.js
+classes.txt
+
+# Système
+Thumbs.db
+.DS_Store
+node_modules/

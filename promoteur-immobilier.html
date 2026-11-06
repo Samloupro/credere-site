@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- =========================================================
+     Credere.ma — page du site
+     Le menu, les coordonnées et le pied de page ne sont PAS
+     écrits ici : ils viennent de js/site.data.js et sont
+     composés par js/layout.js. Cette page ne contient que son
+     contenu propre et son <head>. Voir AGENTS.md.
+     ========================================================= -->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crédit promotion immobilière — Credere.ma</title>
+<meta name="description" content="Crédit promotion immobilière au Maroc : montage du dossier, bilan promoteur, pré-commercialisation, déblocages par tranches et garanties. Credere.ma accompagne les promoteurs de l'étude à la livraison.">
+<meta name="theme-color" content="#0d212e">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Crédit promotion immobilière — Credere.ma">
+<meta property="og:description" content="Financer une opération de promotion immobilière : le vocabulaire, les montages, le dossier et les critères que la banque examine vraiment.">
+<meta property="og:image" content="assets/hero.png">
+<link rel="preload" href="assets/fonts/CrimsonPro-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/DMSans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/hero-960.webp" type="image/webp" media="(max-width: 767px)">
+<link rel="preload" as="image" href="assets/hero-1920.webp" type="image/webp" media="(min-width: 768px)">
+  <script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="promoteurs">
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div data-site-header></div>
+
+<main id="main">
+
+  <section class="page-head page-head--hero" aria-labelledby="promo-title">
+    <div class="page-head-media" aria-hidden="true"></div>
+    <div class="wrap page-head-inner">
+      <h1 id="promo-title">Financer votre opération,<br><span class="hero-accent">pas seulement votre terrain</span></h1>
+      <p class="page-head-intro">Un crédit promotion ne se juge pas sur un prix de vente, mais sur un bilan : foncier, travaux, trésorerie, pré-commercialisation et capacité de remboursement. Credere.ma monte et défend ce dossier avec les banques, dans le langage des comités de crédit.</p>
+      <div class="hero-actions">
+        <a class="btn btn--gold" href="contact.html">Étudier mon dossier</a>
+        <a class="btn btn--ghost" href="#vocabulaire">Comprendre le vocabulaire</a>
+      </div>
+    </div>
+    <a class="hero-scroll" href="#profils" aria-label="Descendre vers la section À qui s'adresse ce financement">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
+    </a>
+  </section>
+
+  <nav class="subnav" aria-label="Sommaire de la page" data-subnav>
+    <div class="wrap subnav-inner">
+      <p class="subnav-label">Sommaire</p>
+      <ul class="subnav-list">
+        <li><a href="#profils">Profils</a></li>
+        <li><a href="#vocabulaire">Vocabulaire</a></li>
+        <li><a href="#montages">Montages</a></li>
+        <li><a href="#etapes">Déroulé</a></li>
+        <li><a href="#dossier">Dossier</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section section--white" id="profils" aria-labelledby="profils-title">
+    <div class="wrap split-layout">
+      <div class="split-intro">
+        <p class="eyebrow reveal">À qui s'adresse ce financement</p>
+        <h2 id="profils-title" class="reveal">Quatre profils, quatre façons de porter un projet</h2>
+        <p class="lead reveal">Le montage ne dépend pas seulement du montant. Il dépend de qui porte l'opération, de ce qu'elle produit et du moment où l'argent rentre.</p>
+      </div>
+
+      <ol class="ranked-list">
+        <li class="ranked-item reveal">
+          <span class="ranked-num" aria-hidden="true">01</span>
+          <div>
+            <h3>Promoteur immobilier</h3>
+            <p>Opération neuve, résidentielle ou mixte : acquisition du foncier, construction, commercialisation et livraison.</p>
+          </div>
+        </li>
+        <li class="ranked-item reveal">
+          <span class="ranked-num" aria-hidden="true">02</span>
+          <div>
+            <h3>SCI de construction</h3>
+            <p>Structure dédiée à une opération, qui porte le terrain et les travaux avant la mise en copropriété ou la revente.</p>
+          </div>
+        </li>
+        <li class="ranked-item reveal">
+          <span class="ranked-num" aria-hidden="true">03</span>
+          <div>
+            <h3>Lotisseur</h3>
+            <p>Aménagement et viabilisation de parcelles, découpage en macrolots ou en lots destinés à la construction.</p>
+          </div>
+        </li>
+        <li class="ranked-item reveal">
+          <span class="ranked-num" aria-hidden="true">04</span>
+          <div>
+            <h3>Marchand de biens</h3>
+            <p>Achat, restructuration et revente d'un immeuble existant, avec un horizon plus court et un risque de commercialisation différent.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="vocabulaire" aria-labelledby="vocab-title">
+    <div class="wrap">
+      <header class="section-head section-head--measure">
+        <p class="eyebrow reveal">Le vocabulaire du promoteur</p>
+        <h2 id="vocab-title" class="reveal">Les mots que la banque va employer</h2>
+        <p class="lead reveal">Ce lexique n'est pas décoratif : chaque terme correspond à une pièce ou à un calcul que le comité de crédit va demander. Mieux vaut les connaître avant le premier rendez-vous.</p>
+      </header>
+
+      <div class="glossary-split">
+        <section class="glossary-group" aria-labelledby="gloss-a">
+          <h3 class="glossary-group-title" id="gloss-a">Piloter l'opération</h3>
+          <dl class="glossary">
+            <div class="reveal">
+              <dt><span class="glossary-num" aria-hidden="true">01</span><span>Bilan promoteur</span></dt>
+              <dd>Le tableau des ressources et des emplois de l'opération, sur toute sa durée : ce qu'elle coûte, ce qu'elle rapporte, et à quel moment. C'est le document central du dossier.</dd>
+            </div>
+            <div class="reveal">
+              <dt><span class="glossary-num" aria-hidden="true">02</span><span>Plan de trésorerie</span></dt>
+              <dd>Le mois par mois : décaissements (foncier, études, travaux, commercialisation), déblocages du crédit et encaissements des ventes. Il révèle les creux que la ligne de trésorerie doit couvrir.</dd>
+            </div>
+            <div class="reveal">
+              <dt><span class="glossary-num" aria-hidden="true">03</span><span>Prix de revient</span></dt>
+              <dd>Coût complet du mètre carré construit : foncier, viabilisation, construction, honoraires, frais financiers et assurances. Il se compare au prix de marché, pas au prix espéré.</dd>
+            </div>
+            <div class="reveal">
+              <dt><span class="glossary-num" aria-hidden="true">04</span><span>Marge promoteur</span></dt>
+              <dd>Écart entre le chiffre d'affaires prévisionnel et le prix de revient. La banque la regarde comme une réserve de sécurité autant que comme le bénéfice de l'opérateur.</dd>
+            </div>
+            <div class="reveal">
+              <dt><span class="glossary-num" aria-hidden="true">05</span><span>Foncier et apport en nature</span></dt>
+              <dd>Le terrain peut entrer dans l'opération en numéraire ou en nature. Sa valeur, son titre et sa situation juridique conditionnent l'assiette de la garantie.</dd>
+            </div>
+            <div class="reveal">
+              <dt><span class="glossary-num" aria-hidden="true">06</span><span>VEFA</span></dt>
+              <dd>Vente en l'état futur d'achèvement : l'acquéreur paie au fur et à mesure de l'avancement. C'est le mécanisme qui fait entrer la trésorerie avant la livraison.</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="glossary-group" aria-labelledby="gloss-b">
+          <h3 class="glossary-group-title" id="gloss-b">Rassurer le financeur</h3>
+          <dl class="glossary">
+            <div class="reveal">
+              <dt><span class="glossary-num" aria-hidden="true">07</span><span>Pré-commercialisation</span></dt>
+              <dd>Part des logements réservés ou vendus avant le démarrage des travaux. Elle rassure la banque sur la demande et réduit le risque de stock invendu.</dd>
+            </div>
+            <div class="reveal">
+              <dt><span class="glossary-num" aria-hidden="true">08</span><span>Déblocage par tranches</span></dt>
+              <dd>Le crédit n'est pas versé en une fois : chaque tranche est libérée contre un justificatif d'avancement (attestation, procès-verbal, facture de l'entreprise).</dd>
+            </div>
+            <div class="reveal">
+              <dt><span class="glossary-num" aria-hidden="true">09</span><span>Intérêts intercalaires</span></dt>
+              <dd>Intérêts payés pendant la construction, avant que les ventes ne génèrent l'essentiel des recettes. Ils doivent figurer dans le bilan, pas être découverts en cours de chantier.</dd>
+            </div>
+            <div class="reveal">
+              <dt><span class="glossary-num" aria-hidden="true">10</span><span>Garantie d'achèvement</span></dt>
+              <dd>Engagement qui couvre la fin du chantier si le promoteur s'arrête. Elle peut prendre la forme d'une caution bancaire, d'une garantie financière ou d'un blocage de fonds.</dd>
+            </div>
+            <div class="reveal">
+              <dt><span class="glossary-num" aria-hidden="true">11</span><span>DSCR</span></dt>
+              <dd>Ratio de couverture du service de la dette : trésorerie disponible de l'opération divisée par les échéances annuelles. Plus il est élevé, plus l'opération absorbe un imprévu.</dd>
+            </div>
+            <div class="reveal">
+              <dt><span class="glossary-num" aria-hidden="true">12</span><span>Gearing et TRI</span></dt>
+              <dd>Le gearing mesure le poids de la dette face aux fonds propres. Le TRI mesure la rentabilité de l'opération sur sa durée. Les deux se lisent ensemble, jamais isolément.</dd>
+            </div>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white" id="montages" aria-labelledby="montages-title">
+    <div class="wrap">
+      <header class="section-head section-head--measure">
+        <p class="eyebrow reveal">Les montages</p>
+        <h2 id="montages-title" class="reveal">Quatre financements qui ne répondent pas au même besoin</h2>
+        <p class="lead reveal">Un promoteur n'a pas un besoin de crédit, il a une succession de besoins. Le bon montage combine plusieurs instruments selon la phase de l'opération.</p>
+      </header>
+
+      <div class="phases">
+        <article class="phase-card reveal">
+          <p class="phase-step"><span class="phase-num">01</span>Foncier</p>
+          <h3>Crédit foncier</h3>
+          <p>Financer l'acquisition du terrain, en amont de la construction.</p>
+          <ul>
+            <li>Durée généralement plus courte que le crédit travaux.</li>
+            <li>Garantie hypothécaire sur le foncier.</li>
+            <li>À articuler avec le crédit construction pour éviter deux dossiers concurrents.</li>
+          </ul>
+        </article>
+
+        <article class="phase-card reveal">
+          <p class="phase-step"><span class="phase-num">02</span>Travaux</p>
+          <h3>Crédit promoteur / construction</h3>
+          <p>Financer les travaux d'une opération vendue en VEFA.</p>
+          <ul>
+            <li>Déblocages successifs contre justificatifs d'avancement.</li>
+            <li>Adossé à la pré-commercialisation et à la garantie d'achèvement.</li>
+            <li>Le calendrier de commercialisation fait partie des conditions.</li>
+          </ul>
+        </article>
+
+        <article class="phase-card reveal">
+          <p class="phase-step"><span class="phase-num">03</span>Trésorerie</p>
+          <h3>Ligne de trésorerie et crédit relais</h3>
+          <p>Couvrir le décalage entre les dépenses et les encaissements.</p>
+          <ul>
+            <li>Lisse les creux du plan de trésorerie.</li>
+            <li>Utile quand les ventes sont signées mais pas encore encaissées.</li>
+            <li>Se rembourse par les recettes de l'opération, pas par un nouveau crédit.</li>
+          </ul>
+        </article>
+
+        <article class="phase-card reveal">
+          <p class="phase-step"><span class="phase-num">04</span>Patrimoine</p>
+          <h3>Crédit-bail immobilier</h3>
+          <p>Financer un actif que le promoteur conserve et exploite.</p>
+          <ul>
+            <li>Adapté aux locaux professionnels, bureaux ou stock locatif.</li>
+            <li>Évite d'immobiliser des fonds propres sur un actif de rendement.</li>
+            <li>Ne remplace pas le crédit travaux de la promotion.</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="note-line reveal">Un seul instrument ne couvre jamais toute l'opération : le montage assemble le foncier, les travaux, la trésorerie, et parfois le patrimoine que le promoteur conserve.</p>
+    </div>
+  </section>
+
+  <section class="section section--navy" id="etapes" aria-labelledby="etapes-title">
+    <div class="wrap split-layout">
+      <div class="split-intro split-intro--light">
+        <p class="eyebrow eyebrow--light reveal">Le déroulé</p>
+        <h2 id="etapes-title" class="reveal">Cinq étapes, de la première réunion à la livraison</h2>
+        <p class="reveal">Chaque étape se clôt par une pièce ou une validation : rien ne passe à la suivante sans elle.</p>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline-item reveal">
+          <p class="timeline-when">Étape 01<span>Cadrage</span></p>
+          <div class="timeline-what">
+            <h3 class="timeline-role">Comprendre l'opération</h3>
+            <p>Nature du projet, localisation, nombre de lots, stade d'avancement, apport disponible et calendrier visé. On vérifie d'abord que le besoin est finançable avant de produire le moindre document.</p>
+          </div>
+        </li>
+
+        <li class="timeline-item reveal">
+          <p class="timeline-when">Étape 02<span>Étude</span></p>
+          <div class="timeline-what">
+            <h3 class="timeline-role">Tester le bilan et la trésorerie</h3>
+            <p>Prix de revient, marge, point mort, DSCR et plan de trésorerie : on cherche les fragilités avant que la banque ne les trouve. Un bilan qui tient est un dossier qui avance.</p>
+          </div>
+        </li>
+
+        <li class="timeline-item reveal">
+          <p class="timeline-when">Étape 03<span>Montage</span></p>
+          <div class="timeline-what">
+            <h3 class="timeline-role">Constituer et présenter le dossier</h3>
+            <p>Pièces société, pièces opération et garanties sont rassemblées et mises en cohérence. Le dossier est présenté aux établissements adaptés au profil et au montant, puis les offres sont comparées.</p>
+          </div>
+        </li>
+
+        <li class="timeline-item reveal">
+          <p class="timeline-when">Étape 04<span>Mise en place</span></p>
+          <div class="timeline-what">
+            <h3 class="timeline-role">Négocier et signer</h3>
+            <p>Conditions suspensives, garanties, échéancier et modalités de déblocage sont négociés puis formalisés. Chaque tranche est ensuite libérée contre justificatif d'avancement.</p>
+          </div>
+        </li>
+
+        <li class="timeline-item reveal">
+          <p class="timeline-when">Étape 05<span>Suivi</span></p>
+          <div class="timeline-what">
+            <h3 class="timeline-role">Accompagner jusqu'à la livraison</h3>
+            <p>Suivi des déblocages, de la commercialisation et des échéances. Les écarts de calendrier ou de ventes se traitent avec la banque avant qu'ils ne deviennent des incidents.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="dossier" aria-labelledby="dossier-title">
+    <div class="wrap">
+      <header class="section-head section-head--measure">
+        <p class="eyebrow reveal">Le dossier attendu</p>
+        <h2 id="dossier-title" class="reveal">Trois familles de pièces à préparer</h2>
+        <p class="lead reveal">La liste exacte varie selon l'établissement et la nature de l'opération. Ces trois familles reviennent dans tous les dossiers de promotion.</p>
+      </header>
+
+      <div class="dossier-grid">
+        <article class="dossier-card reveal">
+          <p class="dossier-num" aria-hidden="true">01</p>
+          <h3>La société</h3>
+          <p>Qui porte l'opération et avec quelle solidité.</p>
+          <ul>
+            <li>Registre de commerce, statuts, ICE et identifiants fiscaux.</li>
+            <li>Trois derniers bilans et comptes de résultat.</li>
+            <li>Relevés bancaires des douze derniers mois.</li>
+            <li>Attestations de régularité fiscale et sociale.</li>
+            <li>Organigramme et expérience du dirigeant.</li>
+          </ul>
+        </article>
+
+        <article class="dossier-card reveal">
+          <p class="dossier-num" aria-hidden="true">02</p>
+          <h3>L'opération</h3>
+          <p>Ce que le projet va coûter et rapporter.</p>
+          <ul>
+            <li>Titre foncier, promesse ou compromis de vente.</li>
+            <li>Permis de construire et plans approuvés.</li>
+            <li>Devis ou marché de travaux, étude de sol.</li>
+            <li>Bilan promoteur et plan de trésorerie.</li>
+            <li>Calendrier, prix de revient et grille de prix.</li>
+            <li>État de la pré-commercialisation.</li>
+          </ul>
+        </article>
+
+        <article class="dossier-card reveal">
+          <p class="dossier-num" aria-hidden="true">03</p>
+          <h3>Les garanties</h3>
+          <p>Ce que la banque peut mobiliser si l'opération dérape.</p>
+          <ul>
+            <li>Hypothèque sur le foncier ou l'immeuble.</li>
+            <li>Garantie d'achèvement du chantier.</li>
+            <li>Caution bancaire ou garantie financière.</li>
+            <li>Assurance chantier et responsabilité civile.</li>
+            <li>Nantissement des parts ou du fonds, selon le montage.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white" id="criteres" aria-labelledby="criteres-title">
+    <div class="wrap criteria-layout">
+      <div class="criteria-intro">
+        <p class="eyebrow reveal">Ce que la banque regarde</p>
+        <h2 id="criteres-title" class="reveal">Six questions posées en comité de crédit</h2>
+        <p class="lead reveal">Un promoteur expérimenté ne présente pas un projet, il répond à des objections. Voici celles qui reviennent le plus souvent, dans l'ordre où elles arrivent.</p>
+        <p class="reveal">Aucun seuil n'est universel : chaque établissement applique sa propre politique selon la taille de l'opération, la région et le profil de l'emprunteur. L'objectif du montage est d'arriver avec des réponses chiffrées, pas avec des intentions.</p>
+
+        <blockquote class="pull-quote reveal">
+          <p>Un comité de crédit ne refuse pas un projet : il refuse un bilan qu'il ne peut pas lire.</p>
+          <cite>Credere.ma — méthode de montage</cite>
+        </blockquote>
+      </div>
+
+      <ol class="criteria">
+        <li class="reveal">
+          <span class="criteria-num">01</span>
+          <div>
+            <strong>L'apport réel</strong>
+            <span>Foncier, numéraire ou apport en nature : quelle part du coût total est déjà engagée par le promoteur ?</span>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="criteria-num">02</span>
+          <div>
+            <strong>La pré-commercialisation</strong>
+            <span>Combien de lots sont réservés, à quel prix, et avec quels contrats ? Des réservations non engageantes pèsent moins qu'un acte signé.</span>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="criteria-num">03</span>
+          <div>
+            <strong>La cohérence du bilan</strong>
+            <span>Le prix de revient est-il réaliste, la marge suffisante, le calendrier tenable ? Un bilan trop optimiste se repère vite.</span>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="criteria-num">04</span>
+          <div>
+            <strong>La capacité de remboursement</strong>
+            <span>Le DSCR et le plan de trésorerie montrent si l'opération rembourse la dette avec ses propres recettes.</span>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="criteria-num">05</span>
+          <div>
+            <strong>L'expérience et la solidité</strong>
+            <span>Opérations déjà livrées, incidents de paiement, structure juridique, qualité des associés et des cautions personnelles.</span>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="criteria-num">06</span>
+          <div>
+            <strong>La qualité des garanties</strong>
+            <span>Un foncier libre, un titre propre et une garantie d'achèvement crédible valent mieux qu'une promesse de garantie future.</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq-split">
+      <div class="faq-side">
+        <p class="eyebrow reveal">Questions fréquentes</p>
+        <h2 id="faq-title" class="reveal">Ce que les promoteurs demandent avant de commencer</h2>
+        <p class="faq-side-note reveal">Votre question n'y figure pas ? Décrivez l'opération en quelques lignes : la réponse dépend souvent de la phase où vous vous trouvez.</p>
+        <a class="text-link reveal" href="contact.html">Poser une question sur votre opération</a>
+      </div>
+
+      <div class="faq reveal">
+        <details>
+          <summary>Quel apport faut-il pour un crédit promotion immobilière ?</summary>
+          <p>Il n'existe pas de pourcentage unique. La banque regarde la part du coût total déjà engagée par le promoteur, la nature de cet apport — foncier, numéraire ou garantie — et sa capacité à absorber un dépassement. Le foncier apporté en nature est souvent valorisé, mais sa valeur est expertisée et son titre vérifié.</p>
+        </details>
+        <details>
+          <summary>Peut-on financer uniquement l'acquisition du terrain ?</summary>
+          <p>Oui, avec un crédit foncier. Mais ce financement est généralement plus court et adossé à une garantie hypothécaire. Il doit être articulé avec le crédit construction : deux dossiers non coordonnés créent souvent un double emploi et une charge d'intérêts mal maîtrisée.</p>
+        </details>
+        <details>
+          <summary>Faut-il le permis de construire avant de déposer le dossier ?</summary>
+          <p>Il est fortement recommandé, et la plupart des établissements l'exigent avant l'accord définitif. Certains acceptent une étude préalable pour instruire le dossier, mais le déblocage des fonds reste conditionné à la régularité administrative de l'opération.</p>
+        </details>
+        <details>
+          <summary>Combien de temps prend l'accord ?</summary>
+          <p>Le délai dépend de la complétude du dossier, du montant et du circuit de décision de la banque. Un dossier incomplet est renvoyé, ce qui ajoute un cycle entier. C'est pourquoi l'étape d'étude et de montage en amont n'est pas du temps perdu : c'est ce qui évite les allers-retours.</p>
+        </details>
+        <details>
+          <summary>Qu'est-ce que la garantie d'achèvement ?</summary>
+          <p>C'est l'engagement qui permet à l'acquéreur — et à la banque — d'être couvert si le chantier ne va pas au bout. Elle peut être une caution bancaire, une garantie financière spécialisée ou un blocage de fonds suffisant pour terminer les travaux. Son coût et ses conditions doivent être intégrés au bilan promoteur.</p>
+        </details>
+        <details>
+          <summary>Le crédit couvre-t-il les intérêts intercalaires ?</summary>
+          <p>Cela dépend du montage. Certains crédits incluent les intérêts dans l'enveloppe, d'autres les laissent à la charge du promoteur jusqu'aux premiers encaissements. Dans tous les cas, ils doivent apparaître dans le plan de trésorerie : les découvrir en cours de chantier est l'une des causes classiques de tension.</p>
+        </details>
+        <details>
+          <summary>Peut-on financer plusieurs opérations en parallèle ?</summary>
+          <p>C'est possible, mais chaque opération est généralement analysée séparément, avec ses propres garanties et son propre plan de trésorerie. La banque vérifie surtout que la trésorerie d'une opération n'est pas utilisée pour combler les besoins d'une autre.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section start-band" aria-labelledby="start-title">
+    <div class="wrap start-layout">
+      <div class="start-intro">
+        <p class="eyebrow reveal">Avant le premier rendez-vous</p>
+        <h2 id="start-title" class="reveal">Trois pièces pour démarrer</h2>
+        <p class="lead reveal">Avec ces trois pièces, un premier échange suffit à dire si l'opération est finançable — et par quel montage.</p>
+        <a class="text-link reveal" href="contact.html">Étudier mon dossier</a>
+      </div>
+
+      <ol class="start-list">
+        <li class="reveal">
+          <span class="start-num" aria-hidden="true">01</span>
+          <strong>Titre foncier</strong>
+          <span>Propriété, situation juridique et charges.</span>
+        </li>
+        <li class="reveal">
+          <span class="start-num" aria-hidden="true">02</span>
+          <strong>Permis de construire</strong>
+          <span>Autorisation et plans approuvés.</span>
+        </li>
+        <li class="reveal">
+          <span class="start-num" aria-hidden="true">03</span>
+          <strong>Bilan promoteur</strong>
+          <span>Coûts, recettes et calendrier.</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="cta-media" aria-hidden="true"></div>
+    <div class="wrap cta-inner">
+      <h2 id="cta-title">Votre opération mérite un dossier qui tient devant un comité de crédit</h2>
+      <a class="btn btn--gold" href="contact.html">Prendre rendez-vous</a>
+    </div>
+  </section>
+
+</main>
+
+<div data-site-footer></div>
+
+<script src="js/site.data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>
